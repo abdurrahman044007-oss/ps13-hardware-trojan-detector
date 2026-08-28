@@ -1,0 +1,235 @@
+{
+    "analysis": "PS13 Static Timing and Side-Channel Leakage Analysis",
+    "gate_delays_ns": {
+        "and": 1.5,
+        "or": 1.5,
+        "not": 1.0,
+        "nand": 1.3,
+        "nor": 1.3,
+        "xor": 2.0,
+        "xnor": 2.0,
+        "buf": 1.0
+    },
+    "clean_circuit": {
+        "gate_count": 3,
+        "primary_inputs": [
+            "a",
+            "b",
+            "c"
+        ],
+        "circuit_outputs": [
+            "y"
+        ],
+        "arrival_times": {
+            "a": 0.0,
+            "b": 0.0,
+            "n1": 1.5,
+            "c": 0.0,
+            "n2": 3.0,
+            "y": 4.0
+        },
+        "gate_timing": {
+            "U1": {
+                "gate": "U1",
+                "type": "and",
+                "inputs": [
+                    "a",
+                    "b"
+                ],
+                "output": "n1",
+                "delay_ns": 1.5,
+                "latest_input_arrival_ns": 0.0,
+                "output_arrival_ns": 1.5
+            },
+            "U2": {
+                "gate": "U2",
+                "type": "or",
+                "inputs": [
+                    "n1",
+                    "c"
+                ],
+                "output": "n2",
+                "delay_ns": 1.5,
+                "latest_input_arrival_ns": 1.5,
+                "output_arrival_ns": 3.0
+            },
+            "U3": {
+                "gate": "U3",
+                "type": "not",
+                "inputs": [
+                    "n2"
+                ],
+                "output": "y",
+                "delay_ns": 1.0,
+                "latest_input_arrival_ns": 3.0,
+                "output_arrival_ns": 4.0
+            }
+        },
+        "output_timing": [
+            {
+                "signal": "y",
+                "arrival_time_ns": 4.0
+            }
+        ],
+        "critical_path": {
+            "delay_ns": 4.0,
+            "output": "y",
+            "path": [
+                {
+                    "gate": "U1",
+                    "type": "and",
+                    "output": "n1"
+                },
+                {
+                    "gate": "U2",
+                    "type": "or",
+                    "output": "n2"
+                },
+                {
+                    "gate": "U3",
+                    "type": "not",
+                    "output": "y"
+                }
+            ]
+        }
+    },
+    "trojan_circuit": {
+        "gate_count": 5,
+        "primary_inputs": [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h"
+        ],
+        "circuit_outputs": [
+            "y"
+        ],
+        "arrival_times": {
+            "a": 0.0,
+            "b": 0.0,
+            "n1": 1.5,
+            "c": 0.0,
+            "n2": 3.0,
+            "d": 0.0,
+            "e": 0.0,
+            "f": 0.0,
+            "g": 0.0,
+            "h": 0.0,
+            "normal_y": 4.0,
+            "trigger": 1.5,
+            "y": 6.0
+        },
+        "gate_timing": {
+            "U1": {
+                "gate": "U1",
+                "type": "and",
+                "inputs": [
+                    "a",
+                    "b"
+                ],
+                "output": "n1",
+                "delay_ns": 1.5,
+                "latest_input_arrival_ns": 0.0,
+                "output_arrival_ns": 1.5
+            },
+            "U2": {
+                "gate": "U2",
+                "type": "or",
+                "inputs": [
+                    "n1",
+                    "c"
+                ],
+                "output": "n2",
+                "delay_ns": 1.5,
+                "latest_input_arrival_ns": 1.5,
+                "output_arrival_ns": 3.0
+            },
+            "U3": {
+                "gate": "U3",
+                "type": "not",
+                "inputs": [
+                    "n2"
+                ],
+                "output": "normal_y",
+                "delay_ns": 1.0,
+                "latest_input_arrival_ns": 3.0,
+                "output_arrival_ns": 4.0
+            },
+            "T1": {
+                "gate": "T1",
+                "type": "and",
+                "inputs": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f",
+                    "g",
+                    "h"
+                ],
+                "output": "trigger",
+                "delay_ns": 1.5,
+                "latest_input_arrival_ns": 0.0,
+                "output_arrival_ns": 1.5
+            },
+            "T2": {
+                "gate": "T2",
+                "type": "xor",
+                "inputs": [
+                    "normal_y",
+                    "trigger"
+                ],
+                "output": "y",
+                "delay_ns": 2.0,
+                "latest_input_arrival_ns": 4.0,
+                "output_arrival_ns": 6.0
+            }
+        },
+        "output_timing": [
+            {
+                "signal": "y",
+                "arrival_time_ns": 6.0
+            }
+        ],
+        "critical_path": {
+            "delay_ns": 6.0,
+            "output": "y",
+            "path": [
+                {
+                    "gate": "U1",
+                    "type": "and",
+                    "output": "n1"
+                },
+                {
+                    "gate": "U2",
+                    "type": "or",
+                    "output": "n2"
+                },
+                {
+                    "gate": "U3",
+                    "type": "not",
+                    "output": "normal_y"
+                },
+                {
+                    "gate": "T2",
+                    "type": "xor",
+                    "output": "y"
+                }
+            ]
+        }
+    },
+    "timing_leakage": {
+        "clean_critical_path_ns": 4.0,
+        "trojan_critical_path_ns": 6.0,
+        "delay_difference_ns": 2.0,
+        "absolute_delay_difference_ns": 2.0,
+        "leakage_threshold_ns": 0.1,
+        "timing_effect": "SLOWER",
+        "leakage_detected": true
+    }
+}

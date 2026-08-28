@@ -1,0 +1,11 @@
+{
+  "classification": "SUSPICIOUS",
+  "candidates": [
+    {
+      "signal": "n1",
+      "probability": 0.01,
+      "score": 75,
+      "reaches_output": true
+    }
+  ]
+}
