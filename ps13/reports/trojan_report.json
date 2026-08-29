@@ -269,10 +269,110 @@
             }
         },
         "graph": {
-            "png": null,
-            "dot": null,
-            "generated": false,
-            "error": "matplotlib is not installed. Run: python -m pip install matplotlib"
+            "png": "reports\\graphs\\clean_circuit.png",
+            "dot": "reports\\graphs\\clean_circuit.dot",
+            "generated": true,
+            "nodes": [
+                {
+                    "id": "gate:U1",
+                    "type": "gate",
+                    "name": "U1",
+                    "gate_type": "and",
+                    "label": "U1\nAND"
+                },
+                {
+                    "id": "gate:U2",
+                    "type": "gate",
+                    "name": "U2",
+                    "gate_type": "or",
+                    "label": "U2\nOR"
+                },
+                {
+                    "id": "gate:U3",
+                    "type": "gate",
+                    "name": "U3",
+                    "gate_type": "not",
+                    "label": "U3\nNOT"
+                },
+                {
+                    "id": "net:a",
+                    "type": "net",
+                    "name": "a",
+                    "label": "a"
+                },
+                {
+                    "id": "net:b",
+                    "type": "net",
+                    "name": "b",
+                    "label": "b"
+                },
+                {
+                    "id": "net:c",
+                    "type": "net",
+                    "name": "c",
+                    "label": "c"
+                },
+                {
+                    "id": "net:n1",
+                    "type": "net",
+                    "name": "n1",
+                    "label": "n1"
+                },
+                {
+                    "id": "net:n2",
+                    "type": "net",
+                    "name": "n2",
+                    "label": "n2"
+                },
+                {
+                    "id": "net:y",
+                    "type": "net",
+                    "name": "y",
+                    "label": "y"
+                }
+            ],
+            "edges": [
+                {
+                    "from": "gate:U1",
+                    "to": "net:n1",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:a",
+                    "to": "gate:U1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:b",
+                    "to": "gate:U1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "gate:U2",
+                    "to": "net:n2",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:n1",
+                    "to": "gate:U2",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:c",
+                    "to": "gate:U2",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "gate:U3",
+                    "to": "net:y",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:n2",
+                    "to": "gate:U3",
+                    "relationship": "feeds"
+                }
+            ]
         }
     },
     "trojan_circuit": {
@@ -866,10 +966,226 @@
             }
         },
         "graph": {
-            "png": null,
-            "dot": null,
-            "generated": false,
-            "error": "matplotlib is not installed. Run: python -m pip install matplotlib"
+            "png": "reports\\graphs\\trojan_circuit.png",
+            "dot": "reports\\graphs\\trojan_circuit.dot",
+            "generated": true,
+            "nodes": [
+                {
+                    "id": "gate:U1",
+                    "type": "gate",
+                    "name": "U1",
+                    "gate_type": "and",
+                    "label": "U1\nAND"
+                },
+                {
+                    "id": "gate:U2",
+                    "type": "gate",
+                    "name": "U2",
+                    "gate_type": "or",
+                    "label": "U2\nOR"
+                },
+                {
+                    "id": "gate:U3",
+                    "type": "gate",
+                    "name": "U3",
+                    "gate_type": "not",
+                    "label": "U3\nNOT"
+                },
+                {
+                    "id": "gate:T1",
+                    "type": "gate",
+                    "name": "T1",
+                    "gate_type": "and",
+                    "label": "T1\nAND"
+                },
+                {
+                    "id": "gate:T2",
+                    "type": "gate",
+                    "name": "T2",
+                    "gate_type": "xor",
+                    "label": "T2\nXOR"
+                },
+                {
+                    "id": "net:a",
+                    "type": "net",
+                    "name": "a",
+                    "label": "a"
+                },
+                {
+                    "id": "net:b",
+                    "type": "net",
+                    "name": "b",
+                    "label": "b"
+                },
+                {
+                    "id": "net:c",
+                    "type": "net",
+                    "name": "c",
+                    "label": "c"
+                },
+                {
+                    "id": "net:d",
+                    "type": "net",
+                    "name": "d",
+                    "label": "d"
+                },
+                {
+                    "id": "net:e",
+                    "type": "net",
+                    "name": "e",
+                    "label": "e"
+                },
+                {
+                    "id": "net:f",
+                    "type": "net",
+                    "name": "f",
+                    "label": "f"
+                },
+                {
+                    "id": "net:g",
+                    "type": "net",
+                    "name": "g",
+                    "label": "g"
+                },
+                {
+                    "id": "net:h",
+                    "type": "net",
+                    "name": "h",
+                    "label": "h"
+                },
+                {
+                    "id": "net:n1",
+                    "type": "net",
+                    "name": "n1",
+                    "label": "n1"
+                },
+                {
+                    "id": "net:n2",
+                    "type": "net",
+                    "name": "n2",
+                    "label": "n2"
+                },
+                {
+                    "id": "net:normal_y",
+                    "type": "net",
+                    "name": "normal_y",
+                    "label": "normal_y"
+                },
+                {
+                    "id": "net:trigger",
+                    "type": "net",
+                    "name": "trigger",
+                    "label": "trigger"
+                },
+                {
+                    "id": "net:y",
+                    "type": "net",
+                    "name": "y",
+                    "label": "y"
+                }
+            ],
+            "edges": [
+                {
+                    "from": "gate:U1",
+                    "to": "net:n1",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:a",
+                    "to": "gate:U1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:b",
+                    "to": "gate:U1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "gate:U2",
+                    "to": "net:n2",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:n1",
+                    "to": "gate:U2",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:c",
+                    "to": "gate:U2",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "gate:U3",
+                    "to": "net:normal_y",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:n2",
+                    "to": "gate:U3",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "gate:T1",
+                    "to": "net:trigger",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:a",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:b",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:c",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:d",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:e",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:f",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:g",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:h",
+                    "to": "gate:T1",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "gate:T2",
+                    "to": "net:y",
+                    "relationship": "drives"
+                },
+                {
+                    "from": "net:normal_y",
+                    "to": "gate:T2",
+                    "relationship": "feeds"
+                },
+                {
+                    "from": "net:trigger",
+                    "to": "gate:T2",
+                    "relationship": "feeds"
+                }
+            ]
         }
     },
     "comparison": {
